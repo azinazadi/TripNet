@@ -1,0 +1,23 @@
+strict digraph G {
+0.6 [shape=point, fontsize="0"];
+1.2 [shape=point, fontsize="0"];
+2.4 [shape=point, fontsize="0"];
+5 [shape=circle];
+6 [shape=circle];
+5.3 [shape=point, fontsize="0"];
+4 [shape=circle];
+1 [shape=circle];
+8.2 [shape=point, fontsize="0"];
+3 [shape=circle];
+2 [shape=circle];
+0.6 -> 1.2 [arrowsize=".8"];
+0.6 -> 2.4 [arrowsize=".8"];
+1.2 -> 6 [arrowsize=".8"];
+1.2 -> 5 [arrowsize=".8"];
+2.4 -> 5.3 [arrowsize=".8"];
+2.4 -> 4 [arrowsize=".8"];
+5.3 -> 1 [arrowsize=".8"];
+5.3 -> 8.2 [arrowsize=".8"];
+8.2 -> 3 [arrowsize=".8"];
+8.2 -> 2 [arrowsize=".8"];
+}

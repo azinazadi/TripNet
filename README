@@ -1,0 +1,4 @@
+please view "user manual.pdf" for more details.
+
+TripNet is an algorithm for constructing phylogenetic networks from sparse sets of rooted triplets. TripNet is a word made of Triplet and Network. This algorithm provides a new method for creating phylogenetic networks from triplets. The importance of this algorithm is that there isn’t any known algorithm for creating phylogenetic networks from sparse triplet datasets. It also introduces a heuristic method for doing this. Currently known non-heuristic methods are often very slow and thus can’t work on medium and large size networks. This new algorithm may produce networks with slightly higher level, but it works faster on larger networks, and also works for sparse datasets. (Having biological data, it is common to have 3 incomparable species, so sparse data sets are unavoidable.)
+

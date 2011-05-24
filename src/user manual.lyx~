@@ -1,0 +1,430 @@
+#LyX 1.6.6.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass memoir
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+TripNet 1.1 User Manual
+\end_layout
+
+\begin_layout Author
+Azin Azadi
+\end_layout
+
+\begin_layout Date
+5 june 2010
+\end_layout
+
+\begin_layout Section
+Pre-requierements
+\end_layout
+
+\begin_layout Standard
+Download and install these softwares before using TripNet:
+\end_layout
+
+\begin_layout Enumerate
+python 2.x version from http://python.org/download/
+\end_layout
+
+\begin_layout Enumerate
+Java jre 6+ from http://java.sun.com/javase/downloads/index.jsp
+\end_layout
+
+\begin_layout Enumerate
+GraphViz from http://graphviz.org/Download..php
+\end_layout
+
+\begin_layout Section
+Running TripNet
+\end_layout
+
+\begin_layout Standard
+If you have some sequences and you want to draw their network you can use
+ tripnet.py in Linux shell or windows command line as follows:
+\end_layout
+
+\begin_layout Standard
+Usage: 
+\end_layout
+
+\begin_layout LyX-Code
+>> python tripnet.py file_name [slow | normal | fast]
+\end_layout
+
+\begin_layout Standard
+- 
+\emph on
+file_name
+\emph default
+ is the path of input file or directory, there is some options for this.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1.
+ If file_name is the name of a file containing sequences first some triplet
+ will be created based on sequences and then the network for this triplets
+ will be created.
+ 
+\end_layout
+
+\begin_layout Standard
+* In this case the file format should be in FASTA format like this: 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+my sequences.txt: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout LyX-Code
+
+>sse94 
+\end_layout
+
+\begin_layout LyX-Code
+
+ggtgcgcgagggcggccgcccgataagcggcgacaccggtctgcgcga 
+\end_layout
+
+\begin_layout LyX-Code
+
+>und8 
+\end_layout
+
+\begin_layout LyX-Code
+
+ggtacgcgagggcgcccgcccgataagcggcgacaccggtctgcgcga 
+\end_layout
+
+\begin_layout LyX-Code
+
+>und64 
+\end_layout
+
+\begin_layout LyX-Code
+
+ggtgcgcgagggcgtccgcccgataagcggcgacaccggtctgcgcga 
+\end_layout
+
+\begin_layout LyX-Code
+
+>she49_1 
+\end_layout
+
+\begin_layout LyX-Code
+
+ggggcgcgagggcgcccgcacgataagcggcgacaccggtctgcgcga 
+\end_layout
+
+\begin_layout LyX-Code
+
+>und79 
+\end_layout
+
+\begin_layout LyX-Code
+
+ggtgcgcgagggcgaccgcccgataagcggcgacaccggtctgcgcga 
+\end_layout
+
+\begin_layout LyX-Code
+
+>Smb_17 
+\end_layout
+
+\begin_layout LyX-Code
+
+ggtgcgcgagggcgcccgcccgataagcggcgacaccggtctgcgcga 
+\end_layout
+
+\end_inset
+
+2.
+ If file_name refers to a triplets file, the network will be created directly
+ from these triplets.
+ 
+\end_layout
+
+\begin_layout Standard
+* In this case your input file should have one triplet in each line, and
+ the numbers in the file should be between 1 and n, like this: 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+mytriplets.txt: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+4 5 1 
+\end_layout
+
+\begin_layout Plain Layout
+
+4 5 2
+\end_layout
+
+\begin_layout Plain Layout
+
+4 5 3 
+\end_layout
+
+\begin_layout Plain Layout
+
+3 6 1 
+\end_layout
+
+\begin_layout Plain Layout
+
+3 6 2 
+\end_layout
+
+\begin_layout Plain Layout
+
+6 3 4 
+\end_layout
+
+\begin_layout Plain Layout
+
+6 3 5 
+\end_layout
+
+\begin_layout Plain Layout
+
+5 4 6 
+\end_layout
+
+\end_inset
+
+* In this case, you can use a .names file.
+ This file contains the names of the species that are used in the triplets
+ file by numbers.
+ The file name of a .names files should be triplets_file_name+.names.
+ For an instance in the above example if you like to provide a .names file,
+ its name should be mytriplets.txt.names, and its format should be like this:
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+mytriplets.txt.names:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+1 Rsericophyllus1                 
+\end_layout
+
+\begin_layout Plain Layout
+
+2 Rsericophyllus4                 
+\end_layout
+
+\begin_layout Plain Layout
+
+3 Rpachyrhizus1                   
+\end_layout
+
+\begin_layout Plain Layout
+
+4 Rgunnianus                      
+\end_layout
+
+\begin_layout Plain Layout
+
+5 Rpinguis1                       
+\end_layout
+
+\begin_layout Plain Layout
+
+6 Rpinguis2                       
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+This operation can also be done by providing a GraphViz
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://graphviz.org
+\end_layout
+
+\end_inset
+
+ .dot file and a .names file using the rename.py included in the bin directory.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+3.
+ If file_name is the name of a directory, each file in the directory will
+ be processed individually as described above.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+- The second input is the speed of algorithm, in a higher speed you will
+ obtain a network with higher level, but choosing a slow speed will provide
+ you a better network but it may take a long time for the algorithm to finish.
+\end_layout
+
+\begin_layout Subsubsection*
+examples:
+\end_layout
+
+\begin_layout Standard
+Running TripNet on a triplet file:
+\end_layout
+
+\begin_layout LyX-Code
+>> python tripnet.py mytriplets.txt normal
+\end_layout
+
+\begin_layout Standard
+\noindent
+Running TripNet on all files of a directory::
+\end_layout
+
+\begin_layout LyX-Code
+>> python tripnet.py dir fast 
+\end_layout
+
+\begin_layout Standard
+This code is still under development.
+ If for some reason you encounter a bug or a problem, please inform me on:
+ aazadi [at sign] gmail [dot] com
+\end_layout
+
+\begin_layout Subsection
+Problems on run
+\end_layout
+
+\begin_layout Standard
+If you see this error on fedora: /lib/ld-linux.so.2: bad ELF interpreter:
+ No such file or directory
+\end_layout
+
+\begin_layout Standard
+run on terminal:
+\end_layout
+
+\begin_layout LyX-Code
+'yum install glibc.i686'
+\end_layout
+
+\begin_layout Section
+Source Code
+\end_layout
+
+\begin_layout Standard
+The code is written in Java (Some utilities are written in Python) and is
+ thus platform independent.
+ The source codes are placed under the src directory.
+ Main class is TripNet, while some classes may not be used in this version,
+ but they are use full if you want to use another integer programming tools.
+ This program is written based on GraphLab (
+\begin_inset CommandInset href
+LatexCommand href
+target "http://graphlab.sharif.edu"
+
+\end_inset
+
+) which is a mathematical graph theory platfrom.
+ The code can be compiled using jar files located in the lib directory.
+ There is a compile.sh file which can guide you through the compile process.
+ In windows/Mac systems the compilation can be done similarly.
+\end_layout
+
+\begin_layout Section
+License
+\end_layout
+
+\begin_layout Standard
+All source codes and other materials are published under the GPL license.
+ Pleae cite this work in the case that you are using TripNet in your studies.
+\end_layout
+
+\end_body
+\end_document
